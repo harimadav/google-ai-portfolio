@@ -1,0 +1,28 @@
+================================================================================
+HARI SHANKAR — PERSONAL PORTFOLIO: PROJECT PROGRESS LOG
+================================================================================
+
+[SESSION 1 — 2026-10-21]
+STATUS: COMPLETED & VERIFIED
+
+1. PROJECT AUDIT & PROVISIONING
+- Inspected initial repository structure, Master Prompt PDF (24 pages), S Hari Shankar's Resume PDF, and Blazer Profile Photo PNG.
+- Checked Cloud SQL eligibility (`asia-southeast1`) and provisioned PostgreSQL instance (`ai-studio-c8ca7385` in project `master-breaker-hbcxw`).
+- Provisioned Google OAuth / Firebase Authentication (`firebase-applet-config.json`).
+
+2. DATABASE SCHEMA & MIGRATION
+- Defined 13 relational PostgreSQL tables in `src/db/schema.ts` using Drizzle ORM:
+  `users`, `profile`, `about`, `skills`, `projects`, `project_images`, `experience`, `education`, `certifications`, `site_settings`, `social_links`, `uploaded_files`, and `contact_messages`.
+- Applied schema to Cloud SQL PostgreSQL via `UpdateSchema` and verified all 13 tables in `information_schema.columns`.
+- Seeded verified resume content for S Hari Shankar (Rajalakshmi Institute of Technology B.E. CSE 8.49 CGPA, CODTECH IT Solutions & Heavy Vehicles Factory internships, 4 core projects, 4 certifications, and 3 hackathon/research awards).
+
+3. BACKEND API, SECURITY BOUNDARY, STORAGE & CACHE REVALIDATION
+- Implemented `server.ts` with public read routes (`/api/portfolio`, `/api/projects/:slug`, `/api/storage/:filename`, `/api/contact`, `/robots.txt`, `/sitemap.xml`) and protected Admin routes (`/api/admin/*`).
+- Enforced server-side authentication (`src/middleware/auth.ts`) and input validation (`src/utils/portfolioLogic.ts`).
+- Implemented `PortfolioCache` with deterministic invalidation on every Admin create/update/delete operation.
+
+4. FRONTEND, 3D VISUAL WORLD, CINEMATIC INTRO & ADMIN SYSTEM
+- Built `CinematicIntro.tsx` ("BOOTING / MY PORTFOLIO" sequential letter reveal -> particle dissolution -> particle portrait from uploaded blazer photo -> Hero transition + Skip Intro fallback).
+- Built `EngineeringBackground3D.tsx` using Three.js with composite 6-part procedural geometry, `RoomEnvironment` lighting, and software-WebGL frame pacing.
+- Built shared `SiteShell.tsx` with left-corner mobile hamburger menu, 3-zone desktop navigation, Dark/Light theme persistence, and footer.
+- Built all public routes (`/`, `/projects`, `/projects/:slug`, `/skills`, `/experience`, `/education`, `/certifications`, `/contact`) and the protected `/admin` Control Center with intentional delete confirmation modals.
